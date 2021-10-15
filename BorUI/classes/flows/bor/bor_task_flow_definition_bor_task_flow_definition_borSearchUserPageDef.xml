@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="bor_task_flow_definition_bor_task_flow_definition_borSearchUserPageDef" Package="flows.bor"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="borSearchUser" RequiresUpdateModel="true" Action="invokeMethod" MethodName="borSearchUser"
+                  IsViewObjectMethod="true" DataControl="BorAMDataControl"
+                  InstanceName="data.BorAMDataControl.DssBranchOpenReqHeaderView1"/>
+  </bindings>
+</pageDefinition>

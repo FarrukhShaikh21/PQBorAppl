@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">borNotification</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">507.35254</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>borNotification&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">163.78711</property>
+      <property
+         name="page">/fragments/bor/borNotification.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <MethodCall
+      id="MethodCall4">
+      <property
+         name="activityId">setNVC_wfDocumentId</property>
+      <property
+         name="x">155.3584</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>setNVC_wfDocumentId&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">162.89062</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="MethodCall4"
+      to="View2">
+      <property
+         name="fromOutcome">setNVC_wfDocumentId</property>
+      <property
+         name="sdm:polyPoints">R50,196.3584,162.54004,465.21704,159.93652,L46</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall5">
+      <property
+         name="activityId">setUserSession</property>
+      <property
+         name="x">149.01758</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>setUserSession&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">352.44824</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+</SDM>
