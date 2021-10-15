@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
 import oracle.jbo.server.DBTransaction;
@@ -591,6 +592,12 @@ public class DssBranchOpenReqHeaderImpl extends EntityImpl {
           setLastUpdatedDate((Date) currentDate.getCurrentDate());
           SequenceImpl seq = new SequenceImpl("dss_branch_open_req_header_seq", getDBTransaction());
           setBranchOpenReqIdPk(seq.getSequenceNumber());
+          ViewObject vo=getDBTransaction().getRootApplicationModule().findViewObject("UserLocVO");
+          if (vo!=null)
+            {
+                    vo.remove();
+            }
+          
           
 //          setBranchStatus("INCOMPLETE");
 //          setDssStatus("INCOMPLETE");
@@ -601,6 +608,9 @@ public class DssBranchOpenReqHeaderImpl extends EntityImpl {
           try {
               setUserIdFk(new Number(userSession.getAttribute("pUserId")));
               setLastUpdatedBy(new Number(userSession.getAttribute("pUserId")));
+              vo=getDBTransaction().getRootApplicationModule().createViewObjectFromQueryStmt("UserLovVO", "select  GIS_LOCATION_ID_FK from DSS_SM_USERS WHERE USER_ID_PK="+getUserIdFk());
+              vo.executeQuery();
+              setGisLocationIdFk(new Number( vo.first().getAttribute(0).toString() ) );
           } catch (SQLException ex) {
               setUserIdFk(new Number(0));
               setLastUpdatedBy(new Number(0));

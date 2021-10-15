@@ -82,13 +82,19 @@ public class DssBranchOpenReqHeaderViewImpl extends ViewObjectImpl implements Ds
 
     public void borSearchUser()
               {
+                        FacesContext fctx = FacesContext.getCurrentInstance();
+                        ExternalContext ectx = fctx.getExternalContext();
+                        HttpSession userSession = (HttpSession) ectx.getSession(false);
+                        userSession.setAttribute("SSV_UserDept", 3);
+                        userSession.setAttribute("pUserId",1139);
+                        
                         ViewCriteria vc = this.getViewCriteria("DssBranchOpenReqHeaderViewCriteria");
                         this.applyViewCriteria(vc);
         
                         setWhereClause(null);
-                        FacesContext fctx = FacesContext.getCurrentInstance();
-                        ExternalContext ectx = fctx.getExternalContext();
-                        HttpSession userSession = (HttpSession) ectx.getSession(false);
+//                        FacesContext fctx = FacesContext.getCurrentInstance();
+//                        ExternalContext ectx = fctx.getExternalContext();
+//                        HttpSession userSession = (HttpSession) ectx.getSession(false);
                         Object VUserID = userSession.getAttribute("pUserId") == null ? "0" : userSession.getAttribute("pUserId");
                         setWhereClause("exists\n" + 
                         " (select 1 \n" + 

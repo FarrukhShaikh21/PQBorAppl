@@ -344,7 +344,9 @@ public class BorAMImpl extends ApplicationModuleImpl implements BorAM {
         ExternalContext ectx = fctx.getExternalContext();
         HttpSession userSession = (HttpSession) ectx.getSession(false);
         userSession.setAttribute("SSV_UserDept", 3);
+        userSession.setAttribute("pUserId",1139);
     }
+    
 }
 
 
