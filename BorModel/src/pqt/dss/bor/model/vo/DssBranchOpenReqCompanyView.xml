@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssBranchOpenReqCompanyView"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT DssBranchOpenReqCompany.BRANCH_OPEN_REQ_ID_FK, 
+       DssBranchOpenReqCompany.COMPANY_ID_FK, 
+       DssBranchOpenReqCompany.VALUE, 
+       DssBranchOpenReqCompany.USER_ID_FK, 
+       DssBranchOpenReqCompany.ENTER_DATE, 
+       DssBranchOpenReqCompany.LAST_UPDATED_BY, 
+       DssBranchOpenReqCompany.LAST_UPDATED_DATE, 
+       DssBranchOpenReqCompany.BRANCH_OPEN_REQ_COMP_ID_PK, 
+       (select st.company_name 
+          from dss_other_ins_company_setup st 
+         where st.company_id_pk = DssBranchOpenReqCompany.Company_Id_Fk) Company_Name 
+  FROM DSS_BRANCH_OPEN_REQ_COMPANY DssBranchOpenReqCompany]]></SQLQuery>
+  <EntityUsage
+    Name="DssBranchOpenReqCompany"
+    Entity="pqt.dss.bor.model.eo.DssBranchOpenReqCompany"/>
+  <ViewAttribute
+    Name="BranchOpenReqIdFk"
+    PrecisionRule="true"
+    EntityAttrName="BranchOpenReqIdFk"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="BRANCH_OPEN_REQ_ID_FK"/>
+  <ViewAttribute
+    Name="CompanyIdFk"
+    PrecisionRule="true"
+    EntityAttrName="CompanyIdFk"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="COMPANY_ID_FK"/>
+  <ViewAttribute
+    Name="Value"
+    PrecisionRule="true"
+    EntityAttrName="Value"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="VALUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.bor.model.vo.DssBranchOpenReqCompanyView.Value_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="USER_ID_FK"/>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="ENTER_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="BranchOpenReqCompIdPk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BranchOpenReqCompIdPk"
+    EntityUsage="DssBranchOpenReqCompany"
+    AliasName="BRANCH_OPEN_REQ_COMP_ID_PK"/>
+  <ViewAttribute
+    Name="CompanyName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COMPANY_NAME"
+    Expression="COMPANY_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.bor.model.vo.DssBranchOpenReqCompanyView.CompanyName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.bor.model.BorModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
