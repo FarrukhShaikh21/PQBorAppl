@@ -76,6 +76,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccLocationLov"
+    ViewObjectName="pqt.dss.bor.model.lov.LocationLov"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_AgentCode"
     ListVOName="AgentDetailLovVo1"
@@ -129,37 +133,57 @@
     <DisplayCriteria
       Name="UserBranchDtlLovVoCriteria"/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT DssBranchOpenReqHeader.BRANCH,             
-       DssBranchOpenReqHeader.BRANCH_ADDRESS,             
-       DssBranchOpenReqHeader.BRANCH_MANAGER_NAME,             
-       DssBranchOpenReqHeader.BRANCH_NAME,             
-       DssBranchOpenReqHeader.BRANCH_NOTIF_ID_FK,             
-       DssBranchOpenReqHeader.BRANCH_OFFIC,             
-       DssBranchOpenReqHeader.BRANCH_OPEN_REQ_ID_PK,             
-       DssBranchOpenReqHeader.BRANCH_STATUS,             
-       DssBranchOpenReqHeader.DSS_NOTIF_ID_FK,             
-       DssBranchOpenReqHeader.DSS_STATUS,             
-       DssBranchOpenReqHeader.EFFECTIVE_FROM,             
-       DssBranchOpenReqHeader.ENTER_DATE,             
-       DssBranchOpenReqHeader.LAST_UPDATED_BY,             
-       DssBranchOpenReqHeader.LAST_UPDATED_DATE,             
-       DssBranchOpenReqHeader.NEAR_PQT_BRANCH,             
-       DssBranchOpenReqHeader.PETTY_CASH_REQUIRED,             
-       DssBranchOpenReqHeader.REGION_NAME,             
-       DssBranchOpenReqHeader.SUB_BRANCH,             
-       DssBranchOpenReqHeader.USER_ID_FK,             
-       DssBranchOpenReqHeader.AGENT_NO_FK,         
-       DssBranchOpenReqHeader.Bor_Doc_No,       
-       DssBranchOpenReqHeader.Branch_Code_Fk,    
-       DssBranchOpenReqHeader.Workflow_Notification_Id,    
-       DssBranchOpenReqHeader.Workflow_Status,     
-       (select ag.AGENT_CODE from VU_DSS_BOR_AGENT_DETAIL ag            
-       where ag.N_AGENT_NO = DssBranchOpenReqHeader.Agent_No_Fk) Agent_Code,           
-       (select ag.AGENT_NAME from VU_DSS_BOR_AGENT_DETAIL ag            
-       where ag.N_AGENT_NO = DssBranchOpenReqHeader.Agent_No_Fk) Agent_Name,      
-       (SELECT BR.V_BRANCH_NAME      
-          FROM VU_DSS_ST_BRANCH BR      
-         WHERE BR.V_BRANCH_CODE = DssBranchOpenReqHeader.Branch_Code_Fk) USER_BRANCH      
+  <ListBinding
+    Name="LovGisLocationIdFk"
+    ListVOName="AccLocationLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GisLocationIdFk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IlLocIdPk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Location"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DssBranchOpenReqHeader.BRANCH,               
+       DssBranchOpenReqHeader.BRANCH_ADDRESS,               
+       DssBranchOpenReqHeader.BRANCH_MANAGER_NAME,               
+       DssBranchOpenReqHeader.BRANCH_NAME,               
+       DssBranchOpenReqHeader.BRANCH_NOTIF_ID_FK,               
+       DssBranchOpenReqHeader.BRANCH_OFFIC,               
+       DssBranchOpenReqHeader.BRANCH_OPEN_REQ_ID_PK,               
+       DssBranchOpenReqHeader.BRANCH_STATUS,               
+       DssBranchOpenReqHeader.DSS_NOTIF_ID_FK,               
+       DssBranchOpenReqHeader.DSS_STATUS,               
+       DssBranchOpenReqHeader.EFFECTIVE_FROM,               
+       DssBranchOpenReqHeader.ENTER_DATE,               
+       DssBranchOpenReqHeader.LAST_UPDATED_BY,               
+       DssBranchOpenReqHeader.LAST_UPDATED_DATE,               
+       DssBranchOpenReqHeader.NEAR_PQT_BRANCH,               
+       DssBranchOpenReqHeader.PETTY_CASH_REQUIRED,               
+       DssBranchOpenReqHeader.REGION_NAME,               
+       DssBranchOpenReqHeader.SUB_BRANCH,               
+       DssBranchOpenReqHeader.USER_ID_FK,               
+       DssBranchOpenReqHeader.AGENT_NO_FK,           
+       DssBranchOpenReqHeader.Bor_Doc_No,         
+       DssBranchOpenReqHeader.Branch_Code_Fk,      
+       DssBranchOpenReqHeader.Workflow_Notification_Id,      
+       DssBranchOpenReqHeader.Workflow_Status,       
+       (select ag.AGENT_CODE from VU_DSS_BOR_AGENT_DETAIL ag              
+       where ag.N_AGENT_NO = DssBranchOpenReqHeader.Agent_No_Fk) Agent_Code,             
+       (select ag.AGENT_NAME from VU_DSS_BOR_AGENT_DETAIL ag              
+       where ag.N_AGENT_NO = DssBranchOpenReqHeader.Agent_No_Fk) Agent_Name,        
+       (SELECT BR.V_BRANCH_NAME        
+          FROM VU_DSS_ST_BRANCH BR        
+         WHERE BR.V_BRANCH_CODE = DssBranchOpenReqHeader.Branch_Code_Fk) USER_BRANCH ,  
+         DssBranchOpenReqHeader.GIS_LOCATION_ID_FK  
 FROM  DSS_BRANCH_OPEN_REQ_HEADER DssBranchOpenReqHeader]]></SQLQuery>
   <EntityUsage
     Name="DssBranchOpenReqHeader"
@@ -523,7 +547,15 @@ FROM  DSS_BRANCH_OPEN_REQ_HEADER DssBranchOpenReqHeader]]></SQLQuery>
     PrecisionRule="true"
     EntityAttrName="GisLocationIdFk"
     EntityUsage="DssBranchOpenReqHeader"
-    AliasName="GIS_LOCATION_ID_FK"/>
+    AliasName="GIS_LOCATION_ID_FK"
+    LOVName="LovGisLocationIdFk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="DssBranchOpenReqHeaderViewCriteria"
     ViewObjectName="pqt.dss.bor.model.vo.DssBranchOpenReqHeaderView"

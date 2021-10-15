@@ -24,6 +24,12 @@
                            id="ot1"/>
           </af:panelLabelAndMessage>
           <af:panelFormLayout id="pfl1" rows="6">
+            <af:selectOneChoice value="#{bindings.GisLocationIdFk.inputValue}" label="#{bindings.GisLocationIdFk.label}"
+                                required="#{bindings.GisLocationIdFk.hints.mandatory}"
+                                shortDesc="#{bindings.GisLocationIdFk.hints.tooltip}" id="soc1">
+              <f:selectItems value="#{bindings.GisLocationIdFk.items}" id="si1"/>
+              <f:validator binding="#{bindings.GisLocationIdFk.validator}"/>
+            </af:selectOneChoice>
             <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.UserBranch.hints.label}"
                                   value="#{bindings.UserBranch.inputValue}" label="#{bindings.UserBranch.hints.label}"
                                   model="#{bindings.UserBranch.listOfValuesModel}"

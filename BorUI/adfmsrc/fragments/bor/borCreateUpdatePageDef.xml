@@ -175,5 +175,7 @@
     <methodAction id="Apply" RequiresUpdateModel="true" Action="invokeMethod" MethodName="Apply"
                   IsViewObjectMethod="false" DataControl="BorAMDataControl"
                   InstanceName="data.BorAMDataControl.dataProvider"/>
+    <list IterBinding="DssBranchOpenReqHeaderView1Iterator" StaticList="false" Uses="LovGisLocationIdFk"
+          id="GisLocationIdFk" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

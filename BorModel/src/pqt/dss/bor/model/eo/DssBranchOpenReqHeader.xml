@@ -260,7 +260,14 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="DSS_BRANCH_OPEN_REQ_HEADER"/>
+    TableName="DSS_BRANCH_OPEN_REQ_HEADER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.bor.model.eo.DssBranchOpenReqHeader.GisLocationIdFk_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="DssBranchOpenReqCompany"
     Association="pqt.dss.bor.model.eo.BranchOpenReqFkAssoc"
@@ -306,4 +313,8 @@
       <Item Value="pqt.dss.bor.model.eo.DssBranchOpenReqHeader.BranchOpenReqIdPk"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.bor.model.BorModelBundle"/>
+  </ResourceBundle>
 </Entity>
