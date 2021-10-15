@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="bor_notification_task_flow_definition_bor_notification_task_flow_definition_setUserSessionPageDef"
+                Package="flows.bor" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="setUserSession" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setUserSession"
+                  IsViewObjectMethod="false" DataControl="BorAMDataControl"
+                  InstanceName="data.BorAMDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

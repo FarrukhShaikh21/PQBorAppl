@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelLabelAndMessage label="#{bindings.BorDocNo.hints.label}" id="plam1" inlineStyle="font-weight:bolder;"
+                                 labelStyle="font-weight:bolder;">
+          <af:outputText value="#{bindings.BorDocNo.inputValue}" shortDesc="#{bindings.BorDocNo.hints.tooltip}"
+                         id="ot1"/>
+        </af:panelLabelAndMessage>
+        <af:panelFormLayout id="pfl1" rows="4">
+          <af:inputComboboxListOfValues id="userBranchId"
+                                        popupTitle="Search and Select: #{bindings.UserBranch.hints.label}"
+                                        value="#{bindings.UserBranch.inputValue}"
+                                        label="#{bindings.UserBranch.hints.label}"
+                                        model="#{bindings.UserBranch.listOfValuesModel}"
+                                        required="#{bindings.UserBranch.hints.mandatory}"
+                                        columns="#{bindings.UserBranch.hints.displayWidth}"
+                                        shortDesc="#{bindings.UserBranch.hints.tooltip}" disabled="true">
+            <f:validator binding="#{bindings.UserBranch.validator}"/>
+          </af:inputComboboxListOfValues>
+          <af:inputText value="#{bindings.AgentCode.inputValue}" label="#{bindings.AgentCode.hints.label}"
+                        required="#{bindings.AgentCode.hints.mandatory}"
+                        columns="#{bindings.AgentCode.hints.displayWidth}"
+                        maximumLength="#{bindings.AgentCode.hints.precision}"
+                        shortDesc="#{bindings.AgentCode.hints.tooltip}" id="it32" disabled="true">
+            <f:validator binding="#{bindings.AgentCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.AgentName.inputValue}" label="#{bindings.AgentName.hints.label}"
+                        required="#{bindings.AgentName.hints.mandatory}"
+                        columns="#{bindings.AgentName.hints.displayWidth}"
+                        maximumLength="#{bindings.AgentName.hints.precision}"
+                        shortDesc="#{bindings.AgentName.hints.tooltip}" id="it33" disabled="true">
+            <f:validator binding="#{bindings.AgentName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BranchName.inputValue}" label="#{bindings.BranchName.hints.label}"
+                        required="#{bindings.BranchName.hints.mandatory}"
+                        columns="#{bindings.BranchName.hints.displayWidth}"
+                        maximumLength="#{bindings.BranchName.hints.precision}"
+                        shortDesc="#{bindings.BranchName.hints.tooltip}" id="it1" disabled="true">
+            <f:validator binding="#{bindings.BranchName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BranchAddress.inputValue}" label="#{bindings.BranchAddress.hints.label}"
+                        required="#{bindings.BranchAddress.hints.mandatory}"
+                        columns="#{bindings.BranchAddress.hints.displayWidth}"
+                        maximumLength="#{bindings.BranchAddress.hints.precision}"
+                        shortDesc="#{bindings.BranchAddress.hints.tooltip}" id="it2" disabled="true">
+            <f:validator binding="#{bindings.BranchAddress.validator}"/>
+          </af:inputText>
+          <af:inputDate value="#{bindings.EffectiveFrom.inputValue}" label="#{bindings.EffectiveFrom.hints.label}"
+                        required="#{bindings.EffectiveFrom.hints.mandatory}"
+                        columns="#{bindings.EffectiveFrom.hints.displayWidth}"
+                        shortDesc="#{bindings.EffectiveFrom.hints.tooltip}" id="id1" disabled="true">
+            <f:validator binding="#{bindings.EffectiveFrom.validator}"/>
+            <af:convertDateTime pattern="#{bindings.EffectiveFrom.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.NearPqtBranch.inputValue}" label="#{bindings.NearPqtBranch.hints.label}"
+                        required="#{bindings.NearPqtBranch.hints.mandatory}"
+                        columns="#{bindings.NearPqtBranch.hints.displayWidth}"
+                        maximumLength="#{bindings.NearPqtBranch.hints.precision}"
+                        shortDesc="#{bindings.NearPqtBranch.hints.tooltip}" id="it3" disabled="true">
+            <f:validator binding="#{bindings.NearPqtBranch.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.BranchManagerName.inputValue}"
+                        label="#{bindings.BranchManagerName.hints.label}"
+                        required="#{bindings.BranchManagerName.hints.mandatory}"
+                        columns="#{bindings.BranchManagerName.hints.displayWidth}"
+                        maximumLength="#{bindings.BranchManagerName.hints.precision}"
+                        shortDesc="#{bindings.BranchManagerName.hints.tooltip}" id="it4" disabled="true">
+            <f:validator binding="#{bindings.BranchManagerName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.Branch.inputValue}" label="#{bindings.Branch.hints.label}"
+                        required="#{bindings.Branch.hints.mandatory}" columns="#{bindings.Branch.hints.displayWidth}"
+                        maximumLength="#{bindings.Branch.hints.precision}" shortDesc="#{bindings.Branch.hints.tooltip}"
+                        id="it5" disabled="true">
+            <f:validator binding="#{bindings.Branch.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.RegionName.inputValue}" label="#{bindings.RegionName.hints.label}"
+                        required="#{bindings.RegionName.hints.mandatory}"
+                        columns="#{bindings.RegionName.hints.displayWidth}"
+                        maximumLength="#{bindings.RegionName.hints.precision}"
+                        shortDesc="#{bindings.RegionName.hints.tooltip}" id="it6" disabled="true">
+            <f:validator binding="#{bindings.RegionName.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:separator id="s1"/>
+        <af:table value="#{bindings.DssBranchOpenReqCompanyView2.collectionModel}" var="row"
+                  rows="#{bindings.DssBranchOpenReqCompanyView2.rangeSize}"
+                  emptyText="#{bindings.DssBranchOpenReqCompanyView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.DssBranchOpenReqCompanyView2.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.DssBranchOpenReqCompanyView2.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.DssBranchOpenReqCompanyView2.rangeSize}" id="t4">
+          <af:column headerText="#{bindings.DssBranchOpenReqCompanyView2.hints.CompanyName.label}" id="c24" width="150">
+            <af:outputText value="#{row.CompanyName}"
+                           shortDesc="#{bindings.DssBranchOpenReqCompanyView2.hints.CompanyName.tooltip}" id="ot3"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqCompanyView2.hints.Value.label}" id="c23" width="150">
+            <af:outputText value="#{row.Value}"
+                           shortDesc="#{bindings.DssBranchOpenReqCompanyView2.hints.Value.tooltip}" id="ot2"/>
+          </af:column>
+        </af:table>
+        <af:separator id="s6"/>
+        <af:table value="#{bindings.DssBranchOpenReqLineView1.collectionModel}" var="row"
+                  rows="#{bindings.DssBranchOpenReqLineView1.rangeSize}"
+                  emptyText="#{bindings.DssBranchOpenReqLineView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.DssBranchOpenReqLineView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.DssBranchOpenReqLineView1.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.DssBranchOpenReqLineView1.rangeSize}" id="t1">
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Years.label}" id="c1" width="120">
+            <af:outputText value="#{row.Years}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Years.tooltip}"
+                           id="ot11">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DssBranchOpenReqLineView1.hints.Years.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Rh.label}" id="c2">
+            <af:outputText value="#{row.Rh}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Rh.tooltip}"
+                           id="ot9"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Zh.label}" id="c3">
+            <af:outputText value="#{row.Zh}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Zh.tooltip}"
+                           id="ot10"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Sgh.label}" id="c4">
+            <af:outputText value="#{row.Sgh}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Sgh.tooltip}"
+                           id="ot7"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Gh.label}" id="c5">
+            <af:outputText value="#{row.Gh}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Gh.tooltip}"
+                           id="ot6"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Buh.label}" id="c6">
+            <af:outputText value="#{row.Buh}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Buh.tooltip}"
+                           id="ot8"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Uh.label}" id="c7">
+            <af:outputText value="#{row.Uh}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Uh.tooltip}"
+                           id="ot5"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Consultantans.label}" id="c8" width="120">
+            <af:outputText value="#{row.Consultantans}"
+                           shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Consultantans.tooltip}" id="ot4"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineView1.hints.Total.label}" id="c9">
+            <af:outputText value="#{row.Total}" shortDesc="#{bindings.DssBranchOpenReqLineView1.hints.Total.tooltip}"
+                           id="ot12"/>
+          </af:column>
+        </af:table>
+        <af:separator id="s2"/>
+        <af:table value="#{bindings.DssBranchOpenReqLineDtlView1.collectionModel}" var="row"
+                  rows="#{bindings.DssBranchOpenReqLineDtlView1.rangeSize}"
+                  emptyText="#{bindings.DssBranchOpenReqLineDtlView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.DssBranchOpenReqLineDtlView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.DssBranchOpenReqLineDtlView1.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.DssBranchOpenReqLineDtlView1.rangeSize}" id="t2">
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.Name.label}" id="c10" width="120">
+            <af:outputText value="#{row.Name}" shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.Name.tooltip}"
+                           id="ot15"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.Designation.label}" id="c11" width="120">
+            <af:outputText value="#{row.Designation}"
+                           shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.Designation.tooltip}" id="ot19"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.ValidationTarget.label}" id="c12"
+                     width="130">
+            <af:outputText value="#{row.ValidationTarget}"
+                           shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.ValidationTarget.tooltip}"
+                           id="ot20"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr1.label}" id="c13">
+            <af:outputText value="#{row.Qtr1}" shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr1.tooltip}"
+                           id="ot16">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr1.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr2.label}" id="c14">
+            <af:outputText value="#{row.Qtr2}" shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr2.tooltip}"
+                           id="ot18">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr2.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr3.label}" id="c15">
+            <af:outputText value="#{row.Qtr3}" shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr3.tooltip}"
+                           id="ot17">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr3.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr4.label}" id="c16">
+            <af:outputText value="#{row.Qtr4}" shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr4.tooltip}"
+                           id="ot14">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DssBranchOpenReqLineDtlView1.hints.Qtr4.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.DssBranchOpenReqLineDtlView1.hints.Total.label}" id="c17">
+            <af:outputText value="#{row.Total}"
+                           shortDesc="#{bindings.DssBranchOpenReqLineDtlView1.hints.Total.tooltip}" id="ot13">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.DssBranchOpenReqLineDtlView1.hints.Total.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:table>
+        <af:separator id="s3"/>
+        <af:table value="#{bindings.DssBrOpnReqDtlResultView1.collectionModel}" var="row"
+                  rows="#{bindings.DssBrOpnReqDtlResultView1.rangeSize}"
+                  emptyText="#{bindings.DssBrOpnReqDtlResultView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.DssBrOpnReqDtlResultView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.DssBrOpnReqDtlResultView1.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.DssBrOpnReqDtlResultView1.rangeSize}" id="t3">
+          <af:column headerText="#{bindings.DssBrOpnReqDtlResultView1.hints.RowType.label}" id="c18" width="130">
+            <af:outputText value="#{row.RowType}"
+                           shortDesc="#{bindings.DssBrOpnReqDtlResultView1.hints.RowType.tooltip}" id="ot21"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBrOpnReqDtlResultView1.hints.Production.label}" id="c19" width="130">
+            <af:outputText value="#{row.Production}"
+                           shortDesc="#{bindings.DssBrOpnReqDtlResultView1.hints.Production.tooltip}" id="ot24"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBrOpnReqDtlResultView1.hints.Consultants.label}" id="c20" width="130">
+            <af:outputText value="#{row.Consultants}"
+                           shortDesc="#{bindings.DssBrOpnReqDtlResultView1.hints.Consultants.tooltip}" id="ot25"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBrOpnReqDtlResultView1.hints.ActiveConsultants.label}" id="c21"
+                     width="130">
+            <af:outputText value="#{row.ActiveConsultants}"
+                           shortDesc="#{bindings.DssBrOpnReqDtlResultView1.hints.ActiveConsultants.tooltip}" id="ot23"/>
+          </af:column>
+          <af:column headerText="#{bindings.DssBrOpnReqDtlResultView1.hints.Producers.label}" id="c22" width="130">
+            <af:outputText value="#{row.Producers}"
+                           shortDesc="#{bindings.DssBrOpnReqDtlResultView1.hints.Producers.tooltip}" id="ot22"/>
+          </af:column>
+        </af:table>
+        <af:separator id="s4"/>
+        <af:panelFormLayout id="pfl2" maxColumns="3" rows="1">
+          <af:inputText value="#{bindings.SubBranch.inputValue}" label="#{bindings.SubBranch.hints.label}"
+                        required="#{bindings.SubBranch.hints.mandatory}"
+                        columns="#{bindings.SubBranch.hints.displayWidth}"
+                        maximumLength="#{bindings.SubBranch.hints.precision}"
+                        shortDesc="#{bindings.SubBranch.hints.tooltip}" id="it31" disabled="true">
+            <f:validator binding="#{bindings.SubBranch.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.Branch.inputValue}" label="#{bindings.Branch.hints.label}"
+                        required="#{bindings.Branch.hints.mandatory}" columns="#{bindings.Branch.hints.displayWidth}"
+                        maximumLength="#{bindings.Branch.hints.precision}" shortDesc="#{bindings.Branch.hints.tooltip}"
+                        id="it29" disabled="true">
+            <f:validator binding="#{bindings.Branch.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.PettyCashRequired.inputValue}"
+                        label="#{bindings.PettyCashRequired.hints.label}"
+                        required="#{bindings.PettyCashRequired.hints.mandatory}"
+                        columns="#{bindings.PettyCashRequired.hints.displayWidth}"
+                        maximumLength="#{bindings.PettyCashRequired.hints.precision}"
+                        shortDesc="#{bindings.PettyCashRequired.hints.tooltip}" id="it30" disabled="true">
+            <f:validator binding="#{bindings.PettyCashRequired.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:separator id="s5"/>
+        <af:panelHeader text="For Departments Only" id="ph1" rendered="#{sessionScope.SSV_UserDept != null}">
+            <af:panelCollection id="pc5" styleClass="AFStretchWidth" featuresOff="detach viewMenu">
+              <f:facet name="toolbar">
+                <af:toolbar id="t11">
+                <af:button actionListener="#{bindings.CreateInsert.execute}" text="Insert Detail"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+              </af:toolbar>
+              </f:facet>
+            <af:table value="#{bindings.DssBranchOpenReqDeptView1.collectionModel}" var="row"
+                      rows="#{bindings.DssBranchOpenReqDeptView1.rangeSize}"
+                      emptyText="#{bindings.DssBranchOpenReqDeptView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.DssBranchOpenReqDeptView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.DssBranchOpenReqDeptView1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.DssBranchOpenReqDeptView1.rangeSize}" id="t5"
+                      partialTriggers="::b1 l1">
+              <af:column headerText="#{bindings.DssBranchOpenReqDeptView1.hints.ItemType.label}" id="c25" width="150">
+                <af:inputListOfValues id="itemTypeId"
+                                      popupTitle="Search and Select: #{bindings.DssBranchOpenReqDeptView1.hints.ItemType.label}"
+                                      value="#{row.bindings.ItemType.inputValue}"
+                                      model="#{row.bindings.ItemType.listOfValuesModel}"
+                                      required="#{bindings.DssBranchOpenReqDeptView1.hints.ItemType.mandatory}"
+                                      columns="#{bindings.DssBranchOpenReqDeptView1.hints.ItemType.displayWidth}"
+                                      shortDesc="#{bindings.DssBranchOpenReqDeptView1.hints.ItemType.tooltip}">
+                  <f:validator binding="#{row.bindings.ItemType.validator}"/>
+                </af:inputListOfValues>
+              </af:column>
+              <af:column headerText="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSubType.label}" id="c26"
+                         width="140">
+                <af:inputText value="#{row.bindings.ItemSubType.inputValue}"
+                              label="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSubType.label}"
+                              required="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSubType.mandatory}"
+                              columns="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSubType.displayWidth}"
+                              maximumLength="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSubType.precision}"
+                              shortDesc="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSubType.tooltip}" id="it7">
+                  <f:validator binding="#{row.bindings.ItemSubType.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSize.label}" id="c27" width="120">
+                <af:inputText value="#{row.bindings.ItemSize.inputValue}"
+                              label="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSize.label}"
+                              required="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSize.mandatory}"
+                              columns="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSize.displayWidth}"
+                              maximumLength="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSize.precision}"
+                              shortDesc="#{bindings.DssBranchOpenReqDeptView1.hints.ItemSize.tooltip}" id="it8">
+                  <f:validator binding="#{row.bindings.ItemSize.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.DssBranchOpenReqDeptView1.hints.Quantity.label}" id="c28" width="120">
+                <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                              label="#{bindings.DssBranchOpenReqDeptView1.hints.Quantity.label}"
+                              required="#{bindings.DssBranchOpenReqDeptView1.hints.Quantity.mandatory}"
+                              columns="#{bindings.DssBranchOpenReqDeptView1.hints.Quantity.displayWidth}"
+                              maximumLength="#{bindings.DssBranchOpenReqDeptView1.hints.Quantity.precision}"
+                              shortDesc="#{bindings.DssBranchOpenReqDeptView1.hints.Quantity.tooltip}" id="it9"
+                              autoSubmit="true">
+                  <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DssBranchOpenReqDeptView1.hints.Quantity.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.DssBranchOpenReqDeptView1.hints.ItemRate.label}" id="c29" width="120">
+                <af:inputText value="#{row.bindings.ItemRate.inputValue}"
+                              label="#{bindings.DssBranchOpenReqDeptView1.hints.ItemRate.label}"
+                              required="#{bindings.DssBranchOpenReqDeptView1.hints.ItemRate.mandatory}"
+                              columns="#{bindings.DssBranchOpenReqDeptView1.hints.ItemRate.displayWidth}"
+                              maximumLength="#{bindings.DssBranchOpenReqDeptView1.hints.ItemRate.precision}"
+                              shortDesc="#{bindings.DssBranchOpenReqDeptView1.hints.ItemRate.tooltip}" id="it10"
+                              autoSubmit="true">
+                  <f:validator binding="#{row.bindings.ItemRate.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DssBranchOpenReqDeptView1.hints.ItemRate.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.DssBranchOpenReqDeptView1.hints.TotalItemsAmount.label}" id="c30"
+                         width="120">
+                <af:inputText value="#{row.bindings.TotalItemsAmount.inputValue}"
+                              label="#{bindings.DssBranchOpenReqDeptView1.hints.TotalItemsAmount.label}"
+                              required="#{bindings.DssBranchOpenReqDeptView1.hints.TotalItemsAmount.mandatory}"
+                              columns="#{bindings.DssBranchOpenReqDeptView1.hints.TotalItemsAmount.displayWidth}"
+                              maximumLength="#{bindings.DssBranchOpenReqDeptView1.hints.TotalItemsAmount.precision}"
+                              shortDesc="#{bindings.DssBranchOpenReqDeptView1.hints.TotalItemsAmount.tooltip}"
+                              id="it11" autoSubmit="true" disabled="true">
+                  <f:validator binding="#{row.bindings.TotalItemsAmount.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DssBranchOpenReqDeptView1.hints.TotalItemsAmount.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column id="c31" headerText="Delete" align="center" width="50">
+                <af:link actionListener="#{bindings.Delete.execute}"
+                         disabled="#{!bindings.Delete.enabled}" id="l1" icon="/images/deleteicon_enabled.gif"
+                         immediate="true"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+          </af:panelHeader>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>
