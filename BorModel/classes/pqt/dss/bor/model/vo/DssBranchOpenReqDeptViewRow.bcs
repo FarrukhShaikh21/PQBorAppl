@@ -1,0 +1,12 @@
+//Groovy Scripts for pqt.dss.bor.model.vo.DssBranchOpenReqDeptView
+
+package pqt.dss.bor.model.vo
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="TotalItemsAmount")
+def TotalItemsAmount_ExpressionScript_Expression()
+{
+(Quantity == null ? 0 : Quantity) * (ItemRate== null ? 0 : ItemRate)
+}
+

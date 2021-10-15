@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssBranchOpenReqDtlResultFkLink"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  EntityAssociation="pqt.dss.bor.model.eo.DssBranchOpenReqDtlResultFkAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="pqt.dss.bor.model.vo.DssBranchOpenReqDtlResultFkLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="DssBranchOpenReqHeaderView"
+    Cardinality="1"
+    Source="true"
+    Owner="pqt.dss.bor.model.vo.DssBranchOpenReqHeaderView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DssBranchOpenReqHeaderView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.bor.model.vo.DssBranchOpenReqHeaderView.BranchOpenReqIdPk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DssBrOpnReqDtlResultView"
+    Cardinality="-1"
+    Owner="pqt.dss.bor.model.vo.DssBrOpnReqDtlResultView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DssBrOpnReqDtlResultView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.bor.model.vo.DssBrOpnReqDtlResultView.BrOpenReqHeaderFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.bor.model.BorModelBundle"/>
+  </ResourceBundle>
+</ViewLink>
