@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DssBranchOpenReqHeaderView"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -518,6 +518,12 @@ FROM  DSS_BRANCH_OPEN_REQ_HEADER DssBranchOpenReqHeader]]></SQLQuery>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="GisLocationIdFk"
+    PrecisionRule="true"
+    EntityAttrName="GisLocationIdFk"
+    EntityUsage="DssBranchOpenReqHeader"
+    AliasName="GIS_LOCATION_ID_FK"/>
   <ViewCriteria
     Name="DssBranchOpenReqHeaderViewCriteria"
     ViewObjectName="pqt.dss.bor.model.vo.DssBranchOpenReqHeaderView"

@@ -57,6 +57,7 @@ public class DssBranchOpenReqHeaderImpl extends EntityImpl {
         BranchCodeFk,
         WorkflowNotificationId,
         WorkflowStatus,
+        GisLocationIdFk,
         DssBranchOpenReqCompany,
         DssBranchOpenReqLine,
         DssBranchOpenReqLineDtl,
@@ -110,6 +111,7 @@ public class DssBranchOpenReqHeaderImpl extends EntityImpl {
     public static final int BRANCHCODEFK = AttributesEnum.BranchCodeFk.index();
     public static final int WORKFLOWNOTIFICATIONID = AttributesEnum.WorkflowNotificationId.index();
     public static final int WORKFLOWSTATUS = AttributesEnum.WorkflowStatus.index();
+    public static final int GISLOCATIONIDFK = AttributesEnum.GisLocationIdFk.index();
     public static final int DSSBRANCHOPENREQCOMPANY = AttributesEnum.DssBranchOpenReqCompany.index();
     public static final int DSSBRANCHOPENREQLINE = AttributesEnum.DssBranchOpenReqLine.index();
     public static final int DSSBRANCHOPENREQLINEDTL = AttributesEnum.DssBranchOpenReqLineDtl.index();
@@ -512,6 +514,22 @@ public class DssBranchOpenReqHeaderImpl extends EntityImpl {
      */
     public void setWorkflowStatus(String value) {
         setAttributeInternal(WORKFLOWSTATUS, value);
+    }
+
+    /**
+     * Gets the attribute value for GisLocationIdFk, using the alias name GisLocationIdFk.
+     * @return the value of GisLocationIdFk
+     */
+    public Number getGisLocationIdFk() {
+        return (Number) getAttributeInternal(GISLOCATIONIDFK);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GisLocationIdFk.
+     * @param value value to set the GisLocationIdFk
+     */
+    public void setGisLocationIdFk(Number value) {
+        setAttributeInternal(GISLOCATIONIDFK, value);
     }
 
     /**
