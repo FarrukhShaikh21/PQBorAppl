@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssBranchOpenReqLineDtl"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DSS_BRANCH_OPEN_REQ_LINE_DTL"
+  AliasName="DssBranchOpenReqLineDtl"
+  BindingStyle="OracleName"
+  RowClass="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtlImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="BrOpenReqLineDtlPk"
+    IsNotNull="true"
+    ColumnName="BR_OPEN_REQ_LINE_DTL_PK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="BrOpenReqHeaderFk"
+    ColumnName="BR_OPEN_REQ_HEADER_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="Name"
+    Precision="500"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Designation"
+    Precision="500"
+    ColumnName="DESIGNATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ValidationTarget"
+    ColumnName="VALIDATION_TARGET"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Qtr1"
+    ColumnName="QTR_1"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="Qtr2"
+    ColumnName="QTR_2"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="Qtr3"
+    ColumnName="QTR_3"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="Qtr4"
+    ColumnName="QTR_4"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="Total"
+    ColumnName="TOTAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"
+    IsNotNull="true"/>
+  <Attribute
+    Name="UserIdFk"
+    ColumnName="USER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="EnterDate"
+    ColumnName="ENTER_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_BRANCH_OPEN_REQ_LINE_DTL"/>
+  <AccessorAttribute
+    Name="DssBranchOpenReqHeader"
+    Association="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtlFkAssoc"
+    AssociationEnd="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtlFkAssoc.DssBranchOpenReqHeader"
+    AssociationOtherEnd="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtlFkAssoc.DssBranchOpenReqLineDtl"
+    Type="pqt.dss.bor.model.eo.DssBranchOpenReqHeaderImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="BrOpenReqLineDtlPk1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="BR_OPEN_REQ_LINE_DTL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtl.BrOpenReqLineDtlPk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DssBranchOpenReqLineDtlTotalCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"TOTAL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DSS_BRANCH_OPEN_REQ_LINE_DTL_T"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtl.Total"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="BrOpenReqHeadrFk">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="BRANCH_OPEN_REQ_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="BR_OPEN_REQ_HEADR_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtl.BrOpenReqHeaderFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_DssBranchOpenReqLineDtl">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="BRANCH_OPEN_REQ_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_DSS_BRANCH_OPEN_REQ_LINE_DT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtl.BrOpenReqHeaderFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_DssBranchOpenReqLineDtl1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="BRANCH_OPEN_REQ_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_DSS_BRANCH_OPEN_REQ_LINE_DT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.bor.model.eo.DssBranchOpenReqLineDtl.BrOpenReqHeaderFk"/>
+    </AttrArray>
+  </Key>
+</Entity>

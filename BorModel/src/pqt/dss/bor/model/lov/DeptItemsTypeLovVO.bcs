@@ -1,0 +1,12 @@
+//Groovy Scripts for pqt.dss.bor.model.lov.DeptItemsTypeLovVO
+
+package pqt.dss.bor.model.lov
+
+import oracle.jbo.script.annotation.VariableExpression;
+
+@VariableExpression(path="VC_DEPT_IDFK")
+def VC_DEPT_IDFK_VariableScript_Variable()
+{
+adf.context.sessionScope.get('SSV_UserDept')
+}
+
